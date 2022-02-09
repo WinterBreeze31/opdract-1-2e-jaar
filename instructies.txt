@@ -1,0 +1,1 @@
+voer het watcher.sh bestand uit in de shell door 'sh watcher.sh' in te typen, dit zorgt er voor dat sass automatisch in het scss mapje gaat kijken of de code aangepast wordt, en het exporteert naar het css mapje
