@@ -10747,6 +10747,10 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+li {
+  list-style: none;
+}
+
 .header {
   position: relative;
   width: 100vw;
@@ -10762,7 +10766,22 @@ textarea.form-control-lg {
 .game-content {
   display: block;
   position: relative;
-  height: 60vh;
+  min-height: 60vh;
+  width: 100%;
+}
+
+.gameBlock {
+  height: 100px;
+  width: 25%;
+  line-height: 100px;
+  display: inline-block;
+  margin: 1px;
+  text-align: center;
+  background-color: transparent;
+}
+
+.gameImg {
+  width: 100%;
 }
 
 .centerized {

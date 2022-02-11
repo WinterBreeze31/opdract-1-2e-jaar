@@ -1,5 +1,10 @@
 @import "../bootstrap/styling/bootstrap";
 
+li{
+	list-style: none;
+	
+}
+
 .header{
 	position: relative;
 	width: 100vw;
@@ -13,13 +18,28 @@
 }
 
 .game-content{
-	display: block;
+	display: block; 
 	position: relative;
-	height: 60vh;
+	min-height: 60vh;
+	width: 100%;
+	
 }
 
+.gameBlock{
+	height: 100px;
+	width: 25%;
+	line-height: 100px;
+	display: inline-block;
+	margin: 1px;
+	text-align: center;
+	background-color: transparent;
+}
+.gameImg{
+	width: 100%;
+}
 
 /// addons
 .centerized{
 	text-align: center;
 }
+
