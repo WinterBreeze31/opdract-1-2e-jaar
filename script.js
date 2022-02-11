@@ -20,14 +20,29 @@ var kleuren = [
 	["yellow"],
 	["pink"],
 	["orange"],
-	["purple"]
+	["purple"],
+	["lightblue"],
+	["black"],
+	["brown"],
+	["grey"]
 ]
+
+var colorSum = kleuren.length;
+
+
+function addScore(){
+var scoreCounter = document.getElementById("game-score").innerHTML;
+scoreCounter++;
+document.getElementById("game-score").innerHTML = scoreCounter;
+console.log(scoreCounter);
+}
 
 function checkColor(val){
 	var field = document.getElementById('colorFrame').dataset.colorid;
 
 	if (val.dataset.colorid == field){
-		fillGame(kleuren)
+		fillGame(kleuren);
+		addScore();
 	}
 }
 
@@ -37,7 +52,7 @@ function checkColor(val){
 function fillGame(arr){
 var buttons = document.getElementsByClassName('gameName');
 var field = document.getElementById('colorFrame');
-var frameId = randomNum(7);
+var frameId = randomNum(colorSum);
 var correctBTN = randomNum(3);
 var bannenNums = [frameId];
 
@@ -45,7 +60,7 @@ field.style.backgroundColor = kleuren[frameId][0];
 field.dataset.colorid = frameId;
 
 	for (let i = 0; i < buttons.length; i++){
-		var colorId = randomFreeNum(7, bannenNums);
+		var colorId = randomFreeNum(colorSum, bannenNums);
 		bannenNums.push(colorId);
 		buttons[i].dataset.colorid = colorId;
 		buttons[i].innerHTML = kleuren[colorId][0];
