@@ -26,11 +26,19 @@
 		<img src="https://www.mooria.eu/resize/e/1200/1200/files/vzory/rainbow-lines.jpg" class="header__img-fullwidth" alt="alt">
 </header>
 <main>
+<div class="centerized">
+  <label for="vol">slide om aan te passen hoeveel tijd je speelt<br>links is minder tijd, rechts is meer</label>
+  <br>
+  <input type="range" id="vol" name="vol" min="10" max="120">
+  <br>
+
+
+
 	<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" onclick="startTimer(60, timerElement);" data-bs-toggle="modal" data-bs-target="#gameframe">
+<button type="button" class="btn btn-primary" onclick="resetGame();" data-bs-toggle="modal" data-bs-target="#gameframe">
   Launch demo modal
 </button>
-
+</div>
 <!-- Modal -->
 <div class="modal fade" id="gameframe" tabindex="-1" aria-labelledby="gameframeLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl">
@@ -39,7 +47,7 @@
         <h5 class="modal-title" id="exampleModalLabel">Score: <span id="game-score">0</span></h5>
 		
 		
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="clearInterval(gameTimer);"></button>
 		
 		
       </div>

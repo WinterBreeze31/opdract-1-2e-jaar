@@ -30,6 +30,8 @@ var kleuren = [
 
 var colorSum = kleuren.length;
 var timerElement = document.getElementById("game-time");
+var currentRunTimeMax;
+
 
 function addScore(){
 var scoreCounter = document.getElementById("game-score").innerHTML;
@@ -72,10 +74,11 @@ buttons[correctBTN].innerHTML = kleuren[frameId][0];
 }
 
 
-
+var gameTimer;
 function startTimer(duration, display) {
+	clearInterval(gameTimer);
     var timer = duration, minutes, seconds;
-    var mytimer = setInterval(function () {
+    	gameTimer = setInterval(function () {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
 
@@ -85,10 +88,31 @@ function startTimer(duration, display) {
         display.textContent = minutes + ":" + seconds;
 
         if (--timer < 0) {
-            clearInterval(mytimer);
+            clearInterval(gameTimer);
+			endGame();
         }
     }, 1000);
 }
+
+
+
+function resetGame(){
+	var userTimeInput = document.getElementById("vol").value;
+	currentRunTimeMax = userTimeInput;
+	document.getElementById("game-score").innerHTML = 0;
+	startTimer(userTimeInput, timerElement);
+}
+
+function endGame() {
+	if(confirm("your score was \n" + 	document.getElementById("game-score").innerHTML + "in " + currentRunTimeMax + " seconds")){
+		 resetGame();
+} else {
+	clearInterval(gameTimer);
+	location.reload();
+}
+}
+
+clearInterval(gameTimer);
 
 
 fillGame(kleuren);
