@@ -13,6 +13,14 @@ function randomFreeNum(num, arr){
 	return val;
 }
 
+document.getElementById('seek').innerHTML = document.getElementById('vol').value;
+
+document.getElementById('vol').addEventListener('change', function(e) {
+    var valueSeeked = e.target.value;
+    document.getElementById('seek').innerHTML = valueSeeked;
+});
+
+
 
 var kleuren = [
 	["red"],
@@ -48,6 +56,9 @@ function checkColor(val){
 		addScore();
 	}
 }
+
+
+
 
 
 
@@ -104,7 +115,7 @@ function resetGame(){
 }
 
 function endGame() {
-	if(confirm("your score was \n" + 	document.getElementById("game-score").innerHTML + "in " + currentRunTimeMax + " seconds")){
+	if(confirm("your score was \n" + 	document.getElementById("game-score").innerHTML + " in " + currentRunTimeMax + " seconds\nPlay again?")){
 		 resetGame();
 } else {
 	clearInterval(gameTimer);
